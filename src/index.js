@@ -26,10 +26,6 @@ const getUserInput = async () => {
   return {
     ...data,
     skills: data.skills.split(',').map(s => s.trim()),
-
-
-
-
     social: data.social && data.social.trim() 
       ? data.social.split(';').map(s => {
           const [platform, url] = s.split(',');
@@ -44,10 +40,8 @@ const main = async () => {
   const readme = generateReadme(userData);
   
   fs.writeFileSync('README.md', readme);
-
   console.log('README.md has been generated successfully! 🎉');
   readline.close();
 };
-
 
 main();
